@@ -1,0 +1,5 @@
+Django>=6.0
+djangorestframework
+pandas
+reportlab
+django-cors-headers
