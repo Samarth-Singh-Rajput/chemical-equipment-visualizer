@@ -45,10 +45,10 @@ class EquipmentUploadView(views.APIView):
             filename=file_obj.name,
             summary=summary
         )
-        # Keep only last 5 datasets
+        # Keep only last 5 datasets: if more than 5, delete the oldest
         if EquipmentDataset.objects.count() > 5:
-            for obj in EquipmentDataset.objects.order_by('uploaded_at')[:-5]:
-                obj.delete()
+            oldest = EquipmentDataset.objects.order_by('uploaded_at').first()
+            oldest.delete()
         # Remove temp file
         os.remove(abs_path)
         return Response(EquipmentDatasetSerializer(dataset).data, status=status.HTTP_201_CREATED)
