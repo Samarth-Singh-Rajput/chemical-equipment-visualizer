@@ -28,33 +28,69 @@ sample_equipment_data.csv  # Example CSV for testing
 
 ---
 
-## Getting Started
+## How to Clone and Start (macOS & Windows)
 
-### 1. Backend (Django)
+### 1. Clone the repository from GitHub
 
+```zsh
+# macOS / Linux / Windows (Git Bash)
+git clone https://github.com/Samarth-Singh-Rajput/chemical-equipment-visualizer.git
+cd chemical-equipment-visualizer
+```
+
+---
+
+### 2. Backend Setup (Django)
+
+#### macOS / Linux (zsh/bash)
 ```zsh
 cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py createsuperuser  # Set up your login credentials
+python manage.py createsuperuser  # Create your login credentials
 python manage.py runserver
 ```
-- The API will be running at `http://127.0.0.1:8000/`
 
-### 2. Frontend (React)
+#### Windows (cmd/PowerShell)
+```bat
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser  # Create your login credentials
+python manage.py runserver
+```
+- The backend API will be running at `http://127.0.0.1:8000/`
 
+---
+
+### 3. Frontend Setup (React)
+
+#### macOS / Linux / Windows
 ```zsh
-cd frontend
+cd ../frontend
 npm install
 npm start
 ```
 - The web app will be available at `http://localhost:3000/`
 
-### 3. Desktop App (PyQt5)
+---
 
+### 4. Desktop App (PyQt5)
+
+#### macOS / Linux (zsh/bash)
 ```zsh
+cd ..
+pip install PyQt5 matplotlib requests
+python desktop_app.py
+```
+
+#### Windows (cmd/PowerShell)
+```bat
+cd ..
 pip install PyQt5 matplotlib requests
 python desktop_app.py
 ```
