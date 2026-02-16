@@ -50,7 +50,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser  # Create your login credentials
-python manage.py runserver
+from django.contrib.auth import get_user_model
+User = get_user_model()
+print(User.objects.filter(is_superuser=True).exists())python manage.py runserver
 ```
 
 #### Windows (cmd/PowerShell)
@@ -105,6 +107,14 @@ python desktop_app.py
 4. **Visualize Data:** Explore your data with interactive charts.
 5. **History:** Access and download PDF reports for your last 5 uploads. When you upload a 6th file, the oldest is automatically removed.
 6. **Logout:** Log out securely when you're done.
+
+---
+
+## Authentication
+
+For authentication purpose:
+- **User name:** admin
+- **Password:** admin@pass
 
 ---
 
